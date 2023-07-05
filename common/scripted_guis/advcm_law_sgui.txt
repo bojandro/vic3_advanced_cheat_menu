@@ -294,7 +294,7 @@ advcm_law_agrarianism = {
 	}
 }
 
-advcm_law_aindustry_banned = {
+advcm_law_industry_banned = {
 	scope = country
 	
 	effect = {
