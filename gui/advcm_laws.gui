@@ -1060,8 +1060,8 @@ window = {
 						}
 						
 						button_icon_square = {
-							name = "advcm_law_serfdom"
-							onclick = "[GetScriptedGui('advcm_serfdom').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							name = "advcm_serfdom"
+							onclick = "[GetScriptedGui('advcm_law_serfdom').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 							tooltip = "Click to enact Serfdom."
 							using = tooltip_ne
 							size = { 150 60 }
@@ -1077,7 +1077,7 @@ window = {
 
 						button_icon_square = {
 							name = "advcm_tenant_farmers"
-							onclick = "[GetScriptedGui('advcm_tenant_farmers').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							onclick = "[GetScriptedGui('advcm_law_tenant_farmers').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 							tooltip = "Click to enact Tenant Farmers."
 							using = tooltip_ne
 							size = { 150 60 }
@@ -1125,7 +1125,7 @@ window = {
 
 						button_icon_square = {
 							name = "advcm_collectivized_agriculture"
-							onclick = "[GetScriptedGui('advcm_collectivized_agriculture').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							onclick = "[GetScriptedGui('advcm_law_collectivized_agriculture').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 							tooltip = "Click to enact Collectivized Agriculture."
 							using = tooltip_ne
 							size = { 150 60 }
