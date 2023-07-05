@@ -62,6 +62,14 @@ advcm_law_total_separation = {
 	}
 }
 
+advcm_law_state_atheism = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_state_atheism
+	}
+}
+
 advcm_law_no_home_affairs = {
 	scope = country
 	
@@ -99,6 +107,14 @@ advcm_law_autocracy = {
 	
 	effect = {
 		activate_law = law_type:law_autocracy
+	}
+}
+
+advcm_law_technocracy = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_technocracy
 	}
 }
 
@@ -147,6 +163,14 @@ advcm_law_anarchy = {
 	
 	effect = {
 		activate_law = law_type:law_anarchy
+	}
+}
+
+advcm_law_single_party_state = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_single_party_state
 	}
 }
 
@@ -270,6 +294,14 @@ advcm_law_agrarianism = {
 	}
 }
 
+advcm_law_industry_banned = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_industry_banned
+	}
+}
+
 advcm_law_laissez_faire = {
 	scope = country
 	
@@ -382,38 +414,6 @@ advcm_law_isolationism = {
 	}
 }
 
-advcm_law_no_police = {
-	scope = country
-	
-	effect = {
-		activate_law = law_type:law_no_police
-	}
-}
-
-advcm_law_local_police_force = {
-	scope = country
-	
-	effect = {
-		activate_law = law_type:law_local_police
-	}
-}
-
-advcm_law_dedicated_police_force = {
-	scope = country
-	
-	effect = {
-		activate_law = law_type:law_dedicated_police
-	}
-}
-
-advcm_law_militarized_police_force = {
-	scope = country
-	
-	effect = {
-		activate_law = law_type:law_militarized_police
-	}
-}
-
 advcm_law_consumption_based_taxation = {
 	scope = country
 	
@@ -451,6 +451,78 @@ advcm_law_graduated_taxation = {
 	
 	effect = {
 		activate_law = law_type:law_graduated_taxation
+	}
+}
+
+advcm_law_serfdom = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_serfdom
+	}
+}
+
+advcm_law_tenant_farmers = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_tenant_farmers
+	}
+}
+
+advcm_law_commercialized_agriculture = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_commercialized_agriculture
+	}
+}
+
+advcm_law_homesteading = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_homesteading
+	}
+}
+
+advcm_law_collectivized_agriculture = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_collectivized_agriculture
+	}
+}
+
+advcm_law_no_police = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_no_police
+	}
+}
+
+advcm_law_local_police_force = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_local_police
+	}
+}
+
+advcm_law_dedicated_police_force = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_dedicated_police
+	}
+}
+
+advcm_law_militarized_police_force = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_militarized_police
 	}
 }
 
@@ -582,19 +654,11 @@ advcm_law_legacy_slavery = {
 	}
 }
 
-advcm_law_serfdom_abolished = {
+advcm_law_no_workers_rights = {
 	scope = country
 	
 	effect = {
-		activate_law = law_type:law_serfdom_banned
-	}
-}
-
-advcm_law_serfdom = {
-	scope = country
-	
-	effect = {
-		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_no_workers_rights
 	}
 }
 
