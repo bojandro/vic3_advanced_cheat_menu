@@ -353,7 +353,7 @@ window = {
 						}
 
 						button_icon_square = {
-							name = "advcm_autocracy"
+							name = "advcm_technocracy"
 							onclick = "[GetScriptedGui('advcm_law_technocracy').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 							tooltip = "Click to enact Technocracy."
 							using = tooltip_ne
@@ -779,7 +779,7 @@ window = {
 
 						button_icon_square = {
 							name = "advcm_industry_banned"
-							onclick = "[GetScriptedGui('advcm_industry_banned').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							onclick = "[GetScriptedGui('advcm_law_industry_banned').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 							tooltip = "Click to enact Industry Banned."
 							using = tooltip_ne
 							size = { 150 60 }
