@@ -231,6 +231,22 @@ window = {
 								size = { 60 60 }
 							}
 						}
+
+						button_icon_square = {
+							name = "advcm_law_state_atheism"
+							onclick = "[GetScriptedGui('advcm_law_state_atheism').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact State Atheism."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/state_atheism.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
 						
 						text_single = {
 							text = "Internal Security"
@@ -335,6 +351,22 @@ window = {
 								size = { 60 60 }
 							}
 						}
+
+						button_icon_square = {
+							name = "advcm_autocracy"
+							onclick = "[GetScriptedGui('advcm_law_technocracy').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Technocracy."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/technocracy.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
 						
 						button_icon_square = {
 							name = "advcm_oligarchy"
@@ -425,6 +457,22 @@ window = {
 							
 							blockoverride "icon" {
 								texture = "gfx/interface/icons/law_icons/anarchy.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+
+						button_icon_square = {
+							name = "advcm_single_party_state"
+							onclick = "[GetScriptedGui('advcm_single_party_state').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Single_Party State."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/single+party_state.dds"
 							}
 							
 							blockoverride "icon_size" {
@@ -728,6 +776,22 @@ window = {
 								size = { 60 60 }
 							}
 						}
+
+						button_icon_square = {
+							name = "advcm_industry_banned"
+							onclick = "[GetScriptedGui('advcm_industry_banned').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Industry Banned."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/industry_banned.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
 						
 						button_icon_square = {
 							name = "advcm_laissez_faire"
@@ -986,6 +1050,95 @@ window = {
 							}
 						}
 						
+						text_single = {
+							text = "Land Reform"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_law_serfdom"
+							onclick = "[GetScriptedGui('advcm_serfdom').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Serfdom."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/serfdom.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+
+						button_icon_square = {
+							name = "advcm_tenant_farmers"
+							onclick = "[GetScriptedGui('advcm_tenant_farmers').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Tenant Farmers."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/tenant_farmers.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+
+						button_icon_square = {
+							name = "advcm_commercialized_agriculture"
+							onclick = "[GetScriptedGui('advcm_commercialized_agriculture').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Commercialized Agriculture."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/commercialized_agriculture.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+
+						button_icon_square = {
+							name = "advcm_homesteading"
+							onclick = "[GetScriptedGui('advcm_homesteading').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Homesteading."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/homesteading.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+
+						button_icon_square = {
+							name = "advcm_collectivized_agriculture"
+							onclick = "[GetScriptedGui('advcm_collectivized_agriculture').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Collectivized Agriculture."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/ollectivized_agriculture.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+
 						text_single = {
 							text = "Policing"
 							
@@ -1475,30 +1628,14 @@ window = {
 						}
 						
 						button_icon_square = {
-							name = "advcm_serfdom_abolished"
-							onclick = "[GetScriptedGui('advcm_law_serfdom_abolished').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-							tooltip = "Click to enact Serfdom Abolished."
+							name = "advcm_no_workers_rigts"
+							onclick = "[GetScriptedGui('advcm_law_no_workers_rights').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact No Workers' Rights."
 							using = tooltip_ne
 							size = { 150 60 }
 							
 							blockoverride "icon" {
-								texture = "gfx/interface/icons/law_icons/serfdom_banned.dds"
-							}
-							
-							blockoverride "icon_size" {
-								size = { 60 60 }
-							}
-						}
-						
-						button_icon_square = {
-							name = "advcm_serfdom"
-							onclick = "[GetScriptedGui('advcm_law_serfdom').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-							tooltip = "Click to enact Serfdom."
-							using = tooltip_ne
-							size = { 150 60 }
-							
-							blockoverride "icon" {
-								texture = "gfx/interface/icons/law_icons/serfdom.dds"
+								texture = "gfx/interface/icons/law_icons/no_workers_rights.dds"
 							}
 							
 							blockoverride "icon_size" {
