@@ -1,0 +1,34 @@
+namespace = advcm
+#QURWQU5DRUQgQ0hFQVQgTUVOVSBieSBtcnRhdHM
+
+advcm.4 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_loyalists = { value = 0.1 }
+	}
+}
+
+advcm.5 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_radicals = { value = 0.1 }
+	}
+}
+
+advcm.6 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_radicals = { value = 0.1 }
+	}
+}
+
+advcm.7 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_loyalists = { value = 0.1 }
+	}
+}
