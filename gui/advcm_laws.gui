@@ -1,0 +1,1742 @@
+#TGF3cyBXaW5kb3cgYnkgbXJ0YXRz
+window = {
+	name = "advcm_law_window"
+	parentanchor = top|right
+	position = { -50 100 }
+	size = { 640 650 }
+	layer = windows_layer
+	filter_mouse = all
+	allow_outside = yes
+	alwaystransparent = no
+	
+	using = Window_Background
+	using = Window_Decoration
+	movable = yes
+    
+    datacontext = "[GetVariableSystem]"
+	datacontext = "[GetPlayer]"
+	
+	
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+	}
+	
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+	}
+	
+	vbox = {
+		restrictparent_min = yes
+		using = Window_Margins
+		
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+
+
+			blockoverride "header_text"
+			{
+				text = "Laws Menu"
+			}
+
+			blockoverride "button_close"
+			{
+				onclick = "[ExecuteConsoleCommand('GUI.ClearWidgets advcm_law_window')]"
+			}
+		}
+			
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			button_tab = {
+				layoutpolicy_horizontal = expanding
+				text = "Power Structure"
+
+				onclick = "[GetVariableSystem.Set( 'advcm_laws_tabs', 'power_structure' )]"
+				down = "[GetVariableSystem.HasValue( 'advcm_laws_tabs', 'power_structure' ) )]"
+			}
+			
+		
+			button_tab = {
+				layoutpolicy_horizontal = expanding
+				text = "Economy"
+
+				onclick = "[GetVariableSystem.Set( 'advcm_laws_tabs', 'economy' )]"
+				down = "[GetVariableSystem.HasValue( 'advcm_laws_tabs', 'economy' ) )]"
+			}
+			
+			button_tab = {
+				layoutpolicy_horizontal = expanding
+				text = "Human Rights"
+
+				onclick = "[GetVariableSystem.Set( 'advcm_laws_tabs', 'human_rights' )]"
+				down = "[GetVariableSystem.HasValue( 'advcm_laws_tabs', 'human_rights' ) )]"
+			}
+		}
+		
+		scrollbox = {
+			name = "characters_scroll_area"
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+
+			blockoverride "scrollbox_content" {
+			
+				hbox = {
+					visible = "[GetVariableSystem.HasValue( 'advcm_laws_tabs', 'power_structure' ) )]"
+					layoutpolicy_horizontal = expanding
+					spacing = 5
+					vbox = {
+						spacing = 5
+						text_single = {
+							text = "Governance Principles"
+						}
+						
+
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_monarchy"
+							onclick = "[GetScriptedGui('advcm_law_monarchy').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Monarchy."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/monarchy.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_presidential_republic"
+							onclick = "[GetScriptedGui('advcm_law_presidential_republic').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Presidential Republic."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/presidential_republic.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_parliamentary_republic"
+							onclick = "[GetScriptedGui('advcm_law_parliamentary_republic').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Parliamentary Republic."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/parliamentary_republic.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_theocracy"
+							onclick = "[GetScriptedGui('advcm_law_theocracy').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Theocracy."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/theocracy.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_council_republic"
+							onclick = "[GetScriptedGui('advcm_law_council_republic').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Council Republic."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/council_republic.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Church and State"
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_state_religion"
+							onclick = "[GetScriptedGui('advcm_law_state_religion').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact State Religion."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/state_religion.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_freedom_of_conscience"
+							onclick = "[GetScriptedGui('advcm_law_freedom_of_conscience').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Freedom of Conscience."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/freedom_of_conscience.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_total_separation"
+							onclick = "[GetScriptedGui('advcm_law_total_separation').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Total Separation."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/total_separation.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Internal Security"
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_no_home_affairs"
+							onclick = "[GetScriptedGui('advcm_law_no_home_affairs').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact No Home Affairs."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/no_home_affairs.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_national_guard"
+							onclick = "[GetScriptedGui('advcm_law_national_guard').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact National Guard."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/national_guard.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_secret_police"
+							onclick = "[GetScriptedGui('advcm_law_secret_police').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Secret Police."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/secret_police.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_guaranteed_liberties"
+							onclick = "[GetScriptedGui('advcm_law_guaranteed_liberties').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Guaranteed Liberties."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/guaranteed_liberties.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+				
+					}
+					
+					vertical_divider_stronger_full = {}
+					
+					vbox = {
+						spacing = 5
+						layoutpolicy_vertical = expanding
+					
+						text_single = {
+							text = "Distribution of Power"
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_autocracy"
+							onclick = "[GetScriptedGui('advcm_law_autocracy').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Autocracy."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/autocracy.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_oligarchy"
+							onclick = "[GetScriptedGui('advcm_law_oligarchy').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Oligarchy."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/oligarchy.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_landed_voting"
+							onclick = "[GetScriptedGui('advcm_law_landed_voting').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Landed Voting."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/landed_voting.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_wealth_voting"
+							onclick = "[GetScriptedGui('advcm_law_wealth_voting').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Wealth Voting."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/wealth_voting.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_census_suffrage"
+							onclick = "[GetScriptedGui('advcm_law_census_suffrage').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Census Suffrage."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/census_voting.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_universal_suffrage"
+							onclick = "[GetScriptedGui('advcm_law_universal_suffrage').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Universal Suffrage."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/universal_suffrage.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_anarchy"
+							onclick = "[GetScriptedGui('advcm_law_anarchy').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Anarchy."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/anarchy.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Bureaucracy"
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "hereditary_bureaucrats"
+							onclick = "[GetScriptedGui('advcm_law_hereditary_bureaucrats').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Hereditary Bureaucrats."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/hereditary_bureaucrats.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "appointed_bureaucrats"
+							onclick = "[GetScriptedGui('advcm_law_appointed_bureaucrats').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Appointed Bureaucrats."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/appointed_bureaucrats.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "elected_bureaucrats"
+							onclick = "[GetScriptedGui('advcm_law_elected_bureaucrats').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Elected Bureaucrats."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/elected_bureaucrats.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						expand = {}
+						
+				
+					}
+					
+					vertical_divider_stronger_full = {}
+					
+					
+					vbox = {
+						spacing = 5
+						layoutpolicy_vertical = expanding
+					
+						text_single = {
+							text = "Citizenship"
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_ethnostate"
+							onclick = "[GetScriptedGui('advcm_law_ethnostate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Ethnostate."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/ethnostate.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_national_supremacy"
+							onclick = "[GetScriptedGui('advcm_law_national_supremacy').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact National Supremacy."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/national_supremacy.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_racial_segregation"
+							onclick = "[GetScriptedGui('advcm_law_racial_segregation').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Racial Segregation."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/racial_segregation.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_cultural_exclusion"
+							onclick = "[GetScriptedGui('advcm_law_cultural_exclusion').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Cultural Exclusion."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/cultural_exclusion.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_multiculturalism"
+							onclick = "[GetScriptedGui('advcm_law_multiculturalism').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Multiculturalism."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/multicultural.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Army Model"
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_peasant_levies"
+							onclick = "[GetScriptedGui('advcm_law_peasant_levies').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Peasant Levies."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/peasant_levies.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_professional_army"
+							onclick = "[GetScriptedGui('advcm_law_professional_army').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Professional Army."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/professional_army.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_national_militia"
+							onclick = "[GetScriptedGui('advcm_law_national_militia').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact National Militia."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/national_militia.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_mass_conscription"
+							onclick = "[GetScriptedGui('advcm_law_mass_conscription').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Mass Conscription."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/mass_conscription.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						expand = {}
+				
+					}
+					
+				}
+				
+				hbox = {
+					visible = "[GetVariableSystem.HasValue( 'advcm_laws_tabs', 'economy' ) )]"
+					layoutpolicy_horizontal = expanding
+					spacing = 5
+					vbox = {
+						spacing = 5
+						text_single = {
+							text = "Economic System"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_traditionalism"
+							onclick = "[GetScriptedGui('advcm_law_traditionalism').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Traditionalism."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/traditionalism.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_interventionism"
+							onclick = "[GetScriptedGui('advcm_law_interventionism').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Interventionism."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/interventionism.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_agrarianism"
+							onclick = "[GetScriptedGui('advcm_law_agrarianism').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Agrarianism."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/agrarianism.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_laissez_faire"
+							onclick = "[GetScriptedGui('advcm_law_laissez_faire').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Laissez-Faire."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/laissez_faire.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_coop_ownership"
+							onclick = "[GetScriptedGui('advcm_law_coop_ownership').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Cooperative Ownership."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/cooperative_ownership.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_command_economy"
+							onclick = "[GetScriptedGui('advcm_law_command_economy').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Command Economy."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/command_economy.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Colonization"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_no_colonial_affairs"
+							onclick = "[GetScriptedGui('advcm_law_no_colonial_affairs').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact No Colonial Affairs."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/no_colonial_affairs.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_colonial_resettlement"
+							onclick = "[GetScriptedGui('advcm_law_colonial_resettlement').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Colonial Resettlement."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/colonial_resettlement.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_colonial_exploitation"
+							onclick = "[GetScriptedGui('advcm_law_colonial_exploitation').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Colonial Exploitation."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/colonial_exploitation.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Health System"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_no_health_system"
+							onclick = "[GetScriptedGui('advcm_law_no_health_system').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact No Health System."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/no_health_system.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_charity_hospitals"
+							onclick = "[GetScriptedGui('advcm_law_charity_hospitals').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Charity Hospitals."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/charitable_health_system.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_private_health_insurance"
+							onclick = "[GetScriptedGui('advcm_law_private_health_insurance').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Private Health Insurance."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/private_health_insurance.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_public_health_insurance"
+							onclick = "[GetScriptedGui('advcm_law_public_health_insurance').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Public Health Insurance."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/public_health_insurance.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+					}
+					
+					vertical_divider_stronger_full = {}
+					
+					vbox = {
+						layoutpolicy_vertical = expanding
+						spacing = 5
+						text_single = {
+							text = "Trade Policy"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_mercantilism"
+							onclick = "[GetScriptedGui('advcm_law_mercantilism').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Mercantilism."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/mercantilism.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_protectionism"
+							onclick = "[GetScriptedGui('advcm_law_protectionism').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Protectionism."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/protectionism.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_free_trade"
+							onclick = "[GetScriptedGui('advcm_law_free_trade').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Free Trade."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/free_trade.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_isolationism"
+							onclick = "[GetScriptedGui('advcm_law_isolationism').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Isolationism."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/isolationism.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Policing"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_no_police"
+							onclick = "[GetScriptedGui('advcm_law_no_police').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact No Police."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/no_police.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_local_police_force"
+							onclick = "[GetScriptedGui('advcm_law_local_police_force').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Local Police Force."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/local_police.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_dedicated_police_force"
+							onclick = "[GetScriptedGui('advcm_law_dedicated_police_force').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Dedicated Police Force."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/dedicated_police.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_militarized_police_force"
+							onclick = "[GetScriptedGui('advcm_law_militarized_police_force').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Militarized Police Force."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/militarized_police.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						expand = {}
+					}
+					
+					vertical_divider_stronger_full = {}
+					
+					vbox = {
+						spacing = 5
+						layoutpolicy_vertical = expanding
+						text_single = {
+							text = "Taxation"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_consumption_based_taxation"
+							onclick = "[GetScriptedGui('advcm_law_consumption_based_taxation').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Consumption-Based Taxation."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/consumption_based_taxation.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_land_based_taxation"
+							onclick = "[GetScriptedGui('advcm_law_land_based_taxation').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Land-Based Taxation."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/land_based_taxation.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_per_capita_taxation"
+							onclick = "[GetScriptedGui('advcm_law_per_capita_taxation').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Per-Capita Taxation."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/per_capita_based_taxation.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_proportional_taxation"
+							onclick = "[GetScriptedGui('advcm_law_proportional_taxation').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Proportional Taxation."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/proportional_taxation.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_graduated_taxation"
+							onclick = "[GetScriptedGui('advcm_law_graduated_taxation').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Graduated Taxation."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/graduated_taxation.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Education System"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_no_schools"
+							onclick = "[GetScriptedGui('advcm_law_no_schools').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact No Schools."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/no_schools.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_religious_schools"
+							onclick = "[GetScriptedGui('advcm_law_religious_schools').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Religious Schools."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/religious_schools.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_private_schools"
+							onclick = "[GetScriptedGui('advcm_law_private_schools').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Private Schools."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/private_schools.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_public_schools"
+							onclick = "[GetScriptedGui('advcm_law_public_schools').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Public Schools."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/public_schools.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						expand = {}
+					}
+				}
+				
+				hbox = {
+					visible = "[GetVariableSystem.HasValue( 'advcm_laws_tabs', 'human_rights' ) )]"
+					layoutpolicy_horizontal = expanding
+					spacing = 5
+					vbox = {
+						layoutpolicy_vertical = expanding
+						spacing = 5
+						text_single = {
+							text = "Free Speech"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_outlawed_dissent"
+							onclick = "[GetScriptedGui('advcm_law_outlawed_dissent').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Outlawed Dissent."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/outlawed_dissent.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_censorship"
+							onclick = "[GetScriptedGui('advcm_law_censorship').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Censorship."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/censorship.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_right_of_assembly"
+							onclick = "[GetScriptedGui('advcm_law_right_of_assembly').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Right of Assembly."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/right_of_assembly.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_protected_speech"
+							onclick = "[GetScriptedGui('advcm_law_protected_speech').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Protected Speech."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/protected_speech.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Rights of Women"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_legal_guardianship"
+							onclick = "[GetScriptedGui('advcm_law_legal_guardianship').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Legal Guardianship."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/no_womens_rights.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_propertied_women"
+							onclick = "[GetScriptedGui('advcm_law_propertied_women').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Propertied Women."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/women_own_property.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_women_in_the_workplace"
+							onclick = "[GetScriptedGui('advcm_law_women_in_the_workplace').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Women in the Workplace."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/women_in_the_workplace.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_womens_suffrage"
+							onclick = "[GetScriptedGui('advcm_law_womens_suffrage').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Women's Suffrage."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/womens_suffrage.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Slavery"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_slavery_banned"
+							onclick = "[GetScriptedGui('advcm_law_slavery_banned').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Slavery Banned."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/slavery_banned.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_debt_slavery"
+							onclick = "[GetScriptedGui('advcm_law_debt_slavery').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Debt Slavery."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/debt_slavery.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_slave_trade"
+							onclick = "[GetScriptedGui('advcm_law_slave_trade').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Slave Trade."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/slave_trade.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_legacy_slavery"
+							onclick = "[GetScriptedGui('advcm_law_legacy_slavery').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact legacy_slavery."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/legacy_slavery.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+					}
+					
+					vertical_divider_stronger_full = {}
+					
+					vbox = {
+						layoutpolicy_vertical = expanding
+						spacing = 5
+						text_single = {
+							text = "Labor Rights"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_serfdom_abolished"
+							onclick = "[GetScriptedGui('advcm_law_serfdom_abolished').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Serfdom Abolished."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/serfdom_banned.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_serfdom"
+							onclick = "[GetScriptedGui('advcm_law_serfdom').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Serfdom."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/serfdom.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_regulatory_bodies"
+							onclick = "[GetScriptedGui('advcm_law_regulatory_bodies').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Regulatory Bodies."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/regulatory_bodies.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_workers_protections"
+							onclick = "[GetScriptedGui('advcm_law_workers_protections').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Workers' Protections."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/worker_protections.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Welfare"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_no_social_security"
+							onclick = "[GetScriptedGui('advcm_law_no_social_security').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact No Social Security."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/no_social_security.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_poor_laws"
+							onclick = "[GetScriptedGui('advcm_law_poor_laws').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Poor Laws."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/poor_laws.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_wage_subsidies"
+							onclick = "[GetScriptedGui('advcm_law_wage_subsidies').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Wage Subsidies."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/wage_controls.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_old_age_pension"
+							onclick = "[GetScriptedGui('advcm_law_old_age_pension').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Old Age Pension."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/old_age_pension.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						expand = {}
+					}
+					
+					vertical_divider_stronger_full = {}
+					
+					vbox = {
+						layoutpolicy_vertical = expanding
+						spacing = 5
+						text_single = {
+							text = "Children's Rights"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_child_labor_allowed"
+							onclick = "[GetScriptedGui('advcm_law_child_labor_allowed').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Child Labor Allowed."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/child_labor_allowed.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_restricted_child_labor"
+							onclick = "[GetScriptedGui('advcm_law_restricted_child_labor').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Restricted Child Labor."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/restricted_child_labor.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_compulsory_primary_school"
+							onclick = "[GetScriptedGui('advcm_law_compulsory_primary_school').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Compulsory Primary School."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/compulsory_primary_school.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						text_single = {
+							text = "Migration"
+							
+						}
+						
+						divider_clean = {
+							layoutpolicy_horizontal = expanding
+						}
+						
+						button_icon_square = {
+							name = "advcm_no_migration_controls"
+							onclick = "[GetScriptedGui('advcm_law_no_migration_controls').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact No Migration Controls."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/no_migration_controls.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_migration_controls"
+							onclick = "[GetScriptedGui('advcm_law_migration_controls').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Migration Controls."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/migration_controls.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						button_icon_square = {
+							name = "advcm_closed_borders"
+							onclick = "[GetScriptedGui('advcm_law_closed_borders').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Click to enact Closed Borders."
+							using = tooltip_ne
+							size = { 150 60 }
+							
+							blockoverride "icon" {
+								texture = "gfx/interface/icons/law_icons/closed_borders.dds"
+							}
+							
+							blockoverride "icon_size" {
+								size = { 60 60 }
+							}
+						}
+						
+						expand = {}
+					}
+				}
+			}
+		}
+	}
+}

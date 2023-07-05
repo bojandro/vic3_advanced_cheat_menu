@@ -1,0 +1,258 @@
+﻿window = {
+	name = "advcm_modifiers_window"
+	parentanchor = top|right
+	position = { -50 100 }
+	size = { 640 180 }
+	layer = windows_layer
+	filter_mouse = all
+	allow_outside = yes
+	alwaystransparent = no
+	
+	using = Window_Background
+	using = Window_Decoration
+	movable = yes
+    
+    datacontext = "[GetVariableSystem]"
+	datacontext = "[GetPlayer]"
+	
+	
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+	}
+	
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+	}
+	
+	vbox = {
+		restrictparent_min = yes
+		using = Window_Margins
+		
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+
+
+			blockoverride "header_text"
+			{
+				text = "Modifiers Menu"
+			}
+
+			blockoverride "button_close"
+			{
+				onclick = "[ExecuteConsoleCommand('GUI.ClearWidgets advcm_modifiers_window')]"
+			}
+		}
+		
+		vbox = {
+		
+			margin_top = 10
+			
+			hbox = {
+				spacing = 5
+				
+				button_icon_square = {
+					name = "advcm_building_throughput"
+					onclick = "[GetScriptedGui('advcm_add_throughput').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onrightclick = "[GetScriptedGui('advcm_remove_throughput').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					button_ignore = none
+					tooltip = "Click to add #P +10.0%#! [concept_throughput]"
+					using = tooltip_ne
+					size = { 40 40 }
+					
+					blockoverride "icon" {
+						texture = "gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds"
+					}
+					
+					blockoverride "icon_size" {
+						size = { 30 30 }
+					}
+					
+					tooltipwidget = {
+						AdvcmTooltipWidgetType = {}
+					}
+				}
+				
+				button_icon_square = {
+					name = "advcm_building_input"
+					onclick = "[GetScriptedGui('advcm_add_goods_input_reduction').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onrightclick = "[GetScriptedGui('advcm_remove_goods_input_reduction').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					button_ignore = none
+					tooltip = "Click to add #P -10.0%#! [concept_input_mult]"
+					using = tooltip_ne
+					size = { 40 40 }
+					
+					blockoverride "icon" {
+						texture = "gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds"
+					}
+					
+					blockoverride "icon_size" {
+						size = { 30 30 }
+					}
+					
+					tooltipwidget = {
+						AdvcmTooltipWidgetType = {}
+					}
+				}
+				
+				button_icon_square = {
+					name = "advcm_offense"
+					onclick = "[GetScriptedGui('advcm_add_offense_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onrightclick = "[GetScriptedGui('advcm_remove_offense_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					button_ignore = none
+					tooltip = "Click to add #P +10%#! [concept_offense]"
+					using = tooltip_ne
+					size = { 40 40 }
+					
+					blockoverride "icon" {
+						texture = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+					}
+					
+					blockoverride "icon_size" {
+						size = { 30 30 }
+					}
+					
+					tooltipwidget = {
+						AdvcmTooltipWidgetType = {}
+					}
+				}
+				
+				button_icon_square = {
+					name = "advcm_defense"
+					onclick = "[GetScriptedGui('advcm_add_defense_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onrightclick = "[GetScriptedGui('advcm_remove_defense_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					button_ignore = none
+					tooltip = "Click to add #P +10%#! [concept_defense]"
+					using = tooltip_ne
+					size = { 40 40 }
+					
+					blockoverride "icon" {
+						texture = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+					}
+					
+					blockoverride "icon_size" {
+						size = { 30 30 }
+					}
+					
+					tooltipwidget = {
+						AdvcmTooltipWidgetType = {}
+					}
+				}
+				
+				button_icon_square = {
+					name = "advcm_kill_rate"
+					onclick = "[GetScriptedGui('advcm_add_kill_rate_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onrightclick = "[GetScriptedGui('advcm_remove_kill_rate_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					button_ignore = none
+					tooltip = "Click to add #P +10%#! [concept_kill_rate]"
+					using = tooltip_ne
+					size = { 40 40 }
+					
+					blockoverride "icon" {
+						texture = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+					}
+					
+					blockoverride "icon_size" {
+						size = { 30 30 }
+					}
+					
+					tooltipwidget = {
+						AdvcmTooltipWidgetType = {}
+					}
+				}
+				
+				button_icon_square = {
+					name = "advcm_recovery_rate"
+					onclick = "[GetScriptedGui('advcm_add_recovery_rate_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onrightclick = "[GetScriptedGui('advcm_remove_recovery_rate_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					button_ignore = none
+					tooltip = "Click to add #P +10%#! [concept_recovery_rate]"
+					using = tooltip_ne
+					size = { 40 40 }
+					
+					blockoverride "icon" {
+						texture = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+					}
+					
+					blockoverride "icon_size" {
+						size = { 30 30 }
+					}
+					
+					tooltipwidget = {
+						AdvcmTooltipWidgetType = {}
+					}
+				}
+				
+				button_icon_square = {
+					name = "advcm_assimilation"
+					onclick = "[GetScriptedGui('advcm_add_assimilation_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onrightclick = "[GetScriptedGui('advcm_remove_assimilation_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					button_ignore = none
+					tooltip = "Click to add #P +10%#! [concept_assimilation]"
+					using = tooltip_ne
+					size = { 40 40 }
+					
+					blockoverride "icon" {
+						texture = "gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds"
+					}
+					
+					blockoverride "icon_size" {
+						size = { 30 30 }
+					}
+					
+					tooltipwidget = {
+						AdvcmTooltipWidgetType = {}
+					}
+				}
+				
+				button_icon_square = {
+					name = "advcm_education"
+					onclick = "[GetScriptedGui('advcm_add_education_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onrightclick = "[GetScriptedGui('advcm_remove_education_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					button_ignore = none
+					tooltip = "Click to add #P +10%#! [concept_education_access]"
+					using = tooltip_ne
+					size = { 40 40 }
+					
+					blockoverride "icon" {
+						texture = "gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds"
+					}
+					
+					blockoverride "icon_size" {
+						size = { 30 30 }
+					}
+					
+					tooltipwidget = {
+						AdvcmTooltipWidgetType = {}
+					}
+				}
+				
+				button_icon_square = {
+					name = "advcm_add_income"
+					onclick = "[GetScriptedGui('advcm_add_income_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onrightclick = "[GetScriptedGui('advcm_remove_income_modifier').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					button_ignore = none
+					tooltip = "Click to add #P +1000000.0#! #tooltippable_name Tax Income#!"
+					using = tooltip_ne
+					size = { 40 40 }
+					
+					blockoverride "icon" {
+						texture = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+					}
+					
+					blockoverride "icon_size" {
+						size = { 30 30 }
+					}
+					
+					tooltipwidget = {
+						AdvcmTooltipWidgetType = {}
+					}
+				}
+			
+			}
+		}
+		
+		expand = {}
+	}
+}

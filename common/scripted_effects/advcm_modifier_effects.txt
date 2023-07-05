@@ -1,0 +1,7 @@
+advcm_add_modifier = {
+	add_modifier = $MODIFIER$
+}
+
+advcm_remove_modifier = {
+	remove_modifier = $MODIFIER$
+}

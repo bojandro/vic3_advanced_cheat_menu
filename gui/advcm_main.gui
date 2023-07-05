@@ -1,0 +1,208 @@
+﻿
+
+# This window is just for testing. You can spawn it from the console menu.
+
+window = {
+	name = "advcm_main_window"
+	parentanchor = top|right
+	position = { -50 100 }
+	size = { 640 %100 }
+	layer = windows_layer
+	filter_mouse = all
+	allow_outside = yes
+	alwaystransparent = no
+	
+	using = Window_Background
+	using = Window_Decoration
+	movable = yes
+    
+    datacontext = "[GetVariableSystem]"
+	datacontext = "[GetPlayer]"
+	
+	
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+	}
+	
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+	}
+	
+	vbox = {
+		restrictparent_min = yes
+		using = Window_Margins
+		
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+
+
+			blockoverride "header_text"
+			{
+				text = "Advanced Cheat Menu"
+			}
+
+			blockoverride "button_close"
+			{
+				onclick = "[ExecuteConsoleCommand('GUI.ClearWidgets advcm_main_window')]"
+			}
+		}
+		
+		
+		widget = {
+			size = { 640 150 }
+			
+			widget = {
+                position = { 0 30 }
+                size = { 640 110 }
+				vbox = {
+					hbox = {
+						button_standard = {
+							name = "advcm_treasury"
+							onclick = "[GetScriptedGui('advcm_treasury_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							onrightclick = "[GetScriptedGui('advcm_treasury_remove').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							button_ignore = none
+							tooltip = "Left-Click to increase Treasury. Right-Click to decrease Treasury."
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Treasury"
+						}
+						
+						button_standard = {
+							name = "advcm_bureaucracy"
+							onclick = "[GetScriptedGui('advcm_bureaucracy_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Left-Click to increase Bureaucracy. Right-Click to remove the modifier."
+							button_ignore = none
+							onrightclick = "[GetScriptedGui('advcm_bureaucracy_remove').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Bureaucracy"
+						}
+						
+						button_standard = {
+							name = "advcm_authority"
+							onclick = "[GetScriptedGui('advcm_authority_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Left-Click to increase Authority. Right-Click to remove the modifier."
+							button_ignore = none
+							onrightclick = "[GetScriptedGui('advcm_authority_remove').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Authority"
+						}
+						
+						button_standard = {
+							name = "advcm_influence"
+							onclick = "[GetScriptedGui('advcm_influence_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Left-Click to increase Influence. Right-Click to remove the modifier."
+							button_ignore = none
+							onrightclick = "[GetScriptedGui('advcm_influence_remove').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Influence"
+						}
+						
+						button_standard = {
+							name = "advcm_laws"
+							onclick = "[ExecuteConsoleCommand('gui.createwidget gui/advcm_laws.gui advcm_law_window')]"
+							onclick = "[GetVariableSystem.Set( 'advcm_laws_tabs', 'power_structure' )]"
+							tooltip = "Open Laws Window"
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Laws"
+						}
+						
+					
+					}
+					
+					hbox = {
+						button_standard = {
+							name = "advcm_loyalists"
+							onclick = "[ExecuteConsoleCommand('event advcm.4')]"
+							tooltip = "Left-Click to increase Loyalists. Right-Click to decrease Loyalists."
+							onrightclick = "[ExecuteConsoleCommand('event advcm.5')]"
+							button_ignore = none
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Loyalists"
+						}
+						
+						button_standard = {
+							name = "advcm_radicals"
+							onclick = "[ExecuteConsoleCommand('event advcm.6')]"
+							tooltip = "Left-Click to increase Radicals. Right-Click to decrease Radicals."
+							onrightclick = "[ExecuteConsoleCommand('event advcm.7')]"
+							button_ignore = none
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Radicals"
+						}
+						
+						button_standard = {
+							name = "advcm_tech_spread"
+							onclick = "[GetScriptedGui('advcm_tech_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Left-Click to increase Tech Spread and Innovation. Right-Click to remove the modifier."
+							onrightclick = "[GetScriptedGui('advcm_tech_remove').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							button_ignore = none
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Technology"
+						}
+						
+						button_standard = {
+							name = "advcm_infamy"
+							onclick = "[GetScriptedGui('advcm_infamy_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Left-Click to increase Infamy. Right-Click to decrease Infamy."
+							onrightclick = "[GetScriptedGui('advcm_infamy_remove').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							button_ignore = none
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Infamy"
+						}
+						
+						button_standard = {
+							name = "advcm_birth"
+							onclick = "[GetScriptedGui('advcm_birth_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Left-Click to add Birth Rate to every owned state. Right-Click to remove the modifier."
+							onrightclick = "[GetScriptedGui('advcm_birth_remove').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							button_ignore = none
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Birth Rate"
+						}
+					
+					}
+					
+					hbox = {
+						button_standard = {
+							name = "advcm_loyalists"
+							onclick = "[ExecuteConsoleCommand('gui.createwidget gui/advcm_modifiers.gui advcm_modifiers_window')]"
+							tooltip = "Open Modifiers Window."
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Modifiers"
+						}
+					
+					}
+				}
+            }
+            
+            widget = {
+                position = { 440 110 }
+                size = { 110 40 }
+                hbox = {
+                    button_standard = {
+						layoutpolicy_horizontal = expanding
+						size = { 100 30 }
+						text = "Debug Mode"
+						onclick = "[ExecuteConsoleCommand('debug_mode')]"
+						tooltip = "Click to toggle Debug Mode"
+                    }
+                }
+			}
+			
+		}            
+	
+	}
+	
+}

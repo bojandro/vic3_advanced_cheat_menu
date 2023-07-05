@@ -1,0 +1,44 @@
+﻿advcm_add_building_throughput = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_throughput_mult = 0.1
+}
+
+advcm_add_building_input_reduction = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_input_mult = -0.1
+}
+
+advcm_add_offense = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_offense_mult = 0.1
+}
+
+advcm_add_defense = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_defense_mult = 0.1
+}
+
+advcm_add_kill_rate = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_kill_rate_add = 0.1
+}
+
+advcm_add_recovery_rate = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_recovery_rate_add = 0.1
+}
+
+advcm_add_assimilation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_assimilation_mult = 0.1
+}
+
+advcm_add_education = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_education_access_add = 0.1
+}
+
+advcm_add_income = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_tax_income_add = 1000000
+}

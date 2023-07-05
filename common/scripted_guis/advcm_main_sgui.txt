@@ -1,0 +1,119 @@
+advcm_treasury_add = {
+	scope = country
+	
+	effect = {
+		add_treasury = 1000000
+	}
+}
+
+advcm_treasury_remove = {
+	scope = country
+	
+	effect = {
+		add_treasury = -1000000
+	}
+}
+
+advcm_bureaucracy_add = {
+	scope = country
+	
+	effect = {
+		add_modifier = advcm_add_bureaucracy
+	}
+}
+
+advcm_bureaucracy_remove = {
+	scope = country
+	
+	effect = {
+		remove_modifier = advcm_add_bureaucracy
+	}
+}
+
+advcm_authority_add = {
+	scope = country
+	
+	effect = {
+		add_modifier = advcm_add_authority
+	}
+}
+
+advcm_authority_remove = {
+	scope = country
+	
+	effect = {
+		remove_modifier = advcm_add_authority
+	}
+}
+
+advcm_influence_add = {
+	scope = country
+	
+	effect = {
+		add_modifier = advcm_add_influence
+	}
+}
+
+advcm_influence_remove = {
+	scope = country
+	
+	effect = {
+		remove_modifier = advcm_add_influence
+	}
+}
+
+advcm_tech_add = {
+	scope = country
+	
+	effect = {
+		add_modifier = advcm_add_tech_spread
+		add_modifier = advcm_add_innovation
+		add_modifier = advcm_add_innovation_max
+	}
+}
+
+advcm_tech_remove = {
+	scope = country
+	
+	effect = {
+		remove_modifier = advcm_add_tech_spread
+		remove_modifier = advcm_add_innovation
+		remove_modifier = advcm_add_innovation_max
+	}
+}
+
+advcm_infamy_add = {
+	scope = country
+	
+	effect = {
+		change_infamy = 10
+	}
+}
+
+advcm_infamy_remove = {
+	scope = country
+	
+	effect = {
+		change_infamy = -10
+	}
+}
+
+advcm_birth_add = {
+	scope = country
+	
+	effect = {
+		every_scope_state = {
+			add_modifier = advcm_add_birth_rate
+		}
+	}
+}
+
+advcm_birth_remove = {
+	scope = country
+	
+	effect = {
+		every_scope_state = {
+			remove_modifier = advcm_add_birth_rate
+		}
+	}
+}
