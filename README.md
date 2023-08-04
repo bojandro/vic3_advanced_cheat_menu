@@ -4,11 +4,15 @@
 
 This is an updated version of a mod originally developed by `mrtats`.
 
+<br>
+
 ## For contributors
 
 Feel free to use this code without asking as long as you mention original author and me.
 
 You can also contribute to this repo directly.
+
+<br>
 
 ## Links
 
