@@ -648,7 +648,7 @@ types information_panel_bar_types {
 
 				onclick = "[ExecuteConsoleCommand('gui.createwidget gui/advcm_main.gui advcm_main_window')]"
 				#onclick = "[GetVariableSystem.Toggle('advcm_main_visible')]"
-				tooltip = advcm_button_tt
+				tooltip = Cheats
 				
 				blockoverride "icon" {
 					texture = "gfx/interface/icons/military_icons/skull.dds"
