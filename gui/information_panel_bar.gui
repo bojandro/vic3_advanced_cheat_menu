@@ -14,6 +14,8 @@
 @population_position = 390
 @journal_position = 430
 @outliner_position = 470
+@companies_position = 600
+@cheats_position = 650
 
 @spacing_widget_2_position = 510
 
@@ -407,6 +409,45 @@ types information_panel_bar_types {
 					input_action = "open_technology"
 				}
 				
+				### COMPANIES
+				sidebar_label_button_small = {
+					enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+					position = { -100 @companies_position }
+					blockoverride "onclick" {
+						onclick = "[InformationPanelBar.OpenPanelCycleTabs('companies', 'default|potential_companies')]"
+						input_action = "open_companies"
+					}
+				}
+				sidebar_label_text_small = {
+					position = { -100 @companies_position }
+					text = "COMPANIES_OVERVIEW"
+				}
+				widget = {
+					name = "tutorial_highlight_companies"
+					enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+					position = { 0 @companies_position }
+					using = clickthrough_blocker
+					using = sidebar_button_size_small
+					using = selected_sidepanel_animation_small
+					blockoverride "selected_visibility" {
+						visible = "[InformationPanelBar.IsPanelOpen('companies')]"
+					}
+					sidepanel_button_small = {
+						blockoverride "icon" {
+							texture = "gfx/interface/main_hud/companies_btn.dds"
+						}
+						blockoverride "button_selected" {
+							visible = "[InformationPanelBar.IsPanelOpen('companies')]"
+						}
+						onclick = "[InformationPanelBar.OpenPanelCycleTabs('companies', 'default|potential_companies')]"
+					}
+				}
+				sidebar_tooltip_area_small = {
+					position = { 0 @companies_position }
+					tooltip = "BUTTON_COMPANIES_OVERVIEW"
+					input_action = "open_companies"
+				}
+
 				### CULTURE
 				sidebar_label_button_small = {
 					enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
@@ -636,7 +677,7 @@ types information_panel_bar_types {
 			layer = top
 			
 			name = advcm_button
-			position = { 0 600}
+			position = { 0 @cheats_position }
 			size = { 40 40 }
 			using = Animation_ShowHide_Quick
 			
