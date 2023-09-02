@@ -5,7 +5,7 @@
 
 advcm_add_building_input_reduction = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	building_good_input_mult = -0.1
+	building_goods_input_mult = -0.1
 }
 
 advcm_add_offense = {
