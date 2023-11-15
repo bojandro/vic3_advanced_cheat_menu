@@ -18,4 +18,4 @@ You can also contribute to this repo directly.
 
 - Original author: <a href="https://steamcommunity.com/id/mertats">mrtats</a>.
 - Original workshop link: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2879916888">Advanced Cheat Menu</a>.
-- Updated workshop link: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2999597446">Advanced Cheat Menu (1.4)</a>.
+- Updated workshop link: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2999597446">Advanced Cheat Menu (1.5)</a>.
