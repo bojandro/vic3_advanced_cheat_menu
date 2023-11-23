@@ -334,6 +334,14 @@ advcm_law_no_colonial_affairs = {
 	}
 }
 
+advcm_law_frontier_colonization = {
+	scope = country
+	
+	effect = {
+		activate_law = law_type:law_frontier_colonization
+	}
+}
+
 advcm_law_colonial_resettlement = {
 	scope = country
 	
