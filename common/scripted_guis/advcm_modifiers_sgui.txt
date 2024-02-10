@@ -1,6 +1,6 @@
 advcm_add_throughput = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_building_throughput
 	}
@@ -8,7 +8,7 @@ advcm_add_throughput = {
 
 advcm_remove_throughput = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_building_throughput
 	}
@@ -16,7 +16,7 @@ advcm_remove_throughput = {
 
 advcm_add_goods_input_reduction = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_building_input_reduction
 	}
@@ -24,7 +24,7 @@ advcm_add_goods_input_reduction = {
 
 advcm_remove_goods_input_reduction = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_building_input_reduction
 	}
@@ -32,7 +32,7 @@ advcm_remove_goods_input_reduction = {
 
 advcm_add_offense_modifier = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_offense
 	}
@@ -40,7 +40,7 @@ advcm_add_offense_modifier = {
 
 advcm_remove_offense_modifier = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_offense
 	}
@@ -48,7 +48,7 @@ advcm_remove_offense_modifier = {
 
 advcm_add_defense_modifier = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_defense
 	}
@@ -56,7 +56,7 @@ advcm_add_defense_modifier = {
 
 advcm_remove_defense_modifier = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_defense
 	}
@@ -64,7 +64,7 @@ advcm_remove_defense_modifier = {
 
 advcm_add_kill_rate_modifier = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_kill_rate
 	}
@@ -72,7 +72,7 @@ advcm_add_kill_rate_modifier = {
 
 advcm_remove_kill_rate_modifier = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_kill_rate
 	}
@@ -80,7 +80,7 @@ advcm_remove_kill_rate_modifier = {
 
 advcm_add_recovery_rate_modifier = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_recovery_rate
 	}
@@ -88,7 +88,7 @@ advcm_add_recovery_rate_modifier = {
 
 advcm_remove_recovery_rate_modifier = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_recovery_rate
 	}
@@ -96,7 +96,7 @@ advcm_remove_recovery_rate_modifier = {
 
 advcm_add_assimilation_modifier = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_assimilation
 	}
@@ -104,7 +104,7 @@ advcm_add_assimilation_modifier = {
 
 advcm_remove_assimilation_modifier = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_assimilation
 	}
@@ -112,7 +112,7 @@ advcm_remove_assimilation_modifier = {
 
 advcm_add_education_modifier = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_education
 	}
@@ -120,7 +120,7 @@ advcm_add_education_modifier = {
 
 advcm_remove_education_modifier = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_education
 	}
@@ -128,7 +128,7 @@ advcm_remove_education_modifier = {
 
 advcm_add_income_modifier = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_income
 	}
@@ -136,7 +136,7 @@ advcm_add_income_modifier = {
 
 advcm_remove_income_modifier = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_income
 	}
