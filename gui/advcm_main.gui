@@ -11,29 +11,28 @@ window = {
 	filter_mouse = all
 	allow_outside = yes
 	alwaystransparent = no
-	
+
 	using = Window_Background
 	using = Window_Decoration
 	movable = yes
-    
+
     datacontext = "[GetVariableSystem]"
 	datacontext = "[GetPlayer]"
-	
-	
+
 	state = {
 		name = _show
 		using = Animation_FadeIn_Quick
 	}
-	
+
 	state = {
 		name = _hide
 		using = Animation_FadeOut_Quick
 	}
-	
+
 	vbox = {
 		restrictparent_min = yes
 		using = Window_Margins
-		
+
 		header_pattern = {
 			layoutpolicy_horizontal = expanding
 
@@ -48,11 +47,10 @@ window = {
 				onclick = "[ExecuteConsoleCommand('GUI.ClearWidgets advcm_main_window')]"
 			}
 		}
-		
-		
+
 		widget = {
 			size = { 640 150 }
-			
+
 			widget = {
                 position = { 0 30 }
                 size = { 640 110 }
@@ -68,7 +66,7 @@ window = {
 							size = { 130 35 }
 							text = "Treasury"
 						}
-						
+
 						button_standard = {
 							name = "advcm_bureaucracy"
 							onclick = "[GetScriptedGui('advcm_bureaucracy_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
@@ -79,7 +77,7 @@ window = {
 							size = { 130 35 }
 							text = "Bureaucracy"
 						}
-						
+
 						button_standard = {
 							name = "advcm_authority"
 							onclick = "[GetScriptedGui('advcm_authority_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
@@ -90,7 +88,7 @@ window = {
 							size = { 130 35 }
 							text = "Authority"
 						}
-						
+
 						button_standard = {
 							name = "advcm_influence"
 							onclick = "[GetScriptedGui('advcm_influence_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
@@ -101,7 +99,7 @@ window = {
 							size = { 130 35 }
 							text = "Influence"
 						}
-						
+
 						button_standard = {
 							name = "advcm_laws"
 							onclick = "[ExecuteConsoleCommand('gui.createwidget gui/advcm_laws.gui advcm_law_window')]"
@@ -111,10 +109,8 @@ window = {
 							size = { 130 35 }
 							text = "Laws"
 						}
-						
-					
 					}
-					
+
 					hbox = {
 						button_standard = {
 							name = "advcm_loyalists"
@@ -126,7 +122,7 @@ window = {
 							size = { 130 35 }
 							text = "Loyalists"
 						}
-						
+
 						button_standard = {
 							name = "advcm_radicals"
 							onclick = "[ExecuteConsoleCommand('event advcm.6')]"
@@ -137,7 +133,7 @@ window = {
 							size = { 130 35 }
 							text = "Radicals"
 						}
-						
+
 						button_standard = {
 							name = "advcm_tech_spread"
 							onclick = "[GetScriptedGui('advcm_tech_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
@@ -148,7 +144,7 @@ window = {
 							size = { 130 35 }
 							text = "Technology"
 						}
-						
+
 						button_standard = {
 							name = "advcm_infamy"
 							onclick = "[GetScriptedGui('advcm_infamy_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
@@ -159,7 +155,7 @@ window = {
 							size = { 130 35 }
 							text = "Infamy"
 						}
-						
+
 						button_standard = {
 							name = "advcm_birth"
 							onclick = "[GetScriptedGui('advcm_birth_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
@@ -170,10 +166,21 @@ window = {
 							size = { 130 35 }
 							text = "Birth Rate"
 						}
-					
+
 					}
-					
+
 					hbox = {
+						button_standard = {
+							name = "advcm_birth"
+							onclick = "[GetScriptedGui('advcm_max_companies_add').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "Left-Click to add Max Companies. Right-Click to remove the modifier."
+							onrightclick = "[GetScriptedGui('advcm_max_companies_remove').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							button_ignore = none
+							using = tooltip_ne
+							size = { 130 35 }
+							text = "Max Companies"
+						}
+
 						button_standard = {
 							name = "advcm_loyalists"
 							onclick = "[ExecuteConsoleCommand('gui.createwidget gui/advcm_modifiers.gui advcm_modifiers_window')]"
@@ -182,13 +189,12 @@ window = {
 							size = { 130 35 }
 							text = "Modifiers"
 						}
-					
 					}
 				}
             }
-            
+
             widget = {
-                position = { 440 110 }
+                position = { 500 110 }
                 size = { 110 40 }
                 hbox = {
                     button_standard = {
@@ -200,9 +206,6 @@ window = {
                     }
                 }
 			}
-			
-		}            
-	
+		}
 	}
-	
 }

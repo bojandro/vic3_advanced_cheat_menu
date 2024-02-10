@@ -2,7 +2,7 @@ advcm_treasury_add = {
 	scope = country
 	
 	effect = {
-		add_treasury = 1000000
+		add_treasury = 10000
 	}
 }
 
@@ -10,7 +10,7 @@ advcm_treasury_remove = {
 	scope = country
 	
 	effect = {
-		add_treasury = -1000000
+		add_treasury = -10000
 	}
 }
 
@@ -115,5 +115,21 @@ advcm_birth_remove = {
 		every_scope_state = {
 			remove_modifier = advcm_add_birth_rate
 		}
+	}
+}
+
+advcm_max_companies_add = {
+	scope = country
+
+	effect = {
+		add_modifier = advcm_add_max_companies
+	}
+}
+
+advcm_max_companies_remove = {
+	scope = country
+
+	effect = {
+		remove_modifier = advcm_add_max_companies
 	}
 }
