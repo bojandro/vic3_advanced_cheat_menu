@@ -1,22 +1,22 @@
 advcm_treasury_add = {
 	scope = country
-	
+
 	effect = {
-		add_treasury = 10000
+		add_treasury = 100000
 	}
 }
 
 advcm_treasury_remove = {
 	scope = country
-	
+
 	effect = {
-		add_treasury = -10000
+		add_treasury = -100000
 	}
 }
 
 advcm_bureaucracy_add = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_bureaucracy
 	}
@@ -24,7 +24,7 @@ advcm_bureaucracy_add = {
 
 advcm_bureaucracy_remove = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_bureaucracy
 	}
@@ -32,7 +32,7 @@ advcm_bureaucracy_remove = {
 
 advcm_authority_add = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_authority
 	}
@@ -40,7 +40,7 @@ advcm_authority_add = {
 
 advcm_authority_remove = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_authority
 	}
@@ -48,7 +48,7 @@ advcm_authority_remove = {
 
 advcm_influence_add = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_influence
 	}
@@ -56,7 +56,7 @@ advcm_influence_add = {
 
 advcm_influence_remove = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_influence
 	}
@@ -64,7 +64,7 @@ advcm_influence_remove = {
 
 advcm_tech_add = {
 	scope = country
-	
+
 	effect = {
 		add_modifier = advcm_add_tech_spread
 		add_modifier = advcm_add_innovation
@@ -74,7 +74,7 @@ advcm_tech_add = {
 
 advcm_tech_remove = {
 	scope = country
-	
+
 	effect = {
 		remove_modifier = advcm_add_tech_spread
 		remove_modifier = advcm_add_innovation
@@ -84,7 +84,7 @@ advcm_tech_remove = {
 
 advcm_infamy_add = {
 	scope = country
-	
+
 	effect = {
 		change_infamy = 10
 	}
@@ -92,7 +92,7 @@ advcm_infamy_add = {
 
 advcm_infamy_remove = {
 	scope = country
-	
+
 	effect = {
 		change_infamy = -10
 	}
@@ -100,7 +100,7 @@ advcm_infamy_remove = {
 
 advcm_birth_add = {
 	scope = country
-	
+
 	effect = {
 		every_scope_state = {
 			add_modifier = advcm_add_birth_rate
@@ -110,7 +110,7 @@ advcm_birth_add = {
 
 advcm_birth_remove = {
 	scope = country
-	
+
 	effect = {
 		every_scope_state = {
 			remove_modifier = advcm_add_birth_rate
